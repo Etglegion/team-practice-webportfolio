@@ -36,7 +36,7 @@
 2. Откройте файл index.html в браузере.
 
 ## Структура проекта
-team-practice-webportfolio/
+team-practice-webportfolio/ <br>
 ├── index.html        # Главная страница <br>
 ├── style.css         # Стили приложения <br>
 ├── p1.html 		  # Страница Тимлида <br>
