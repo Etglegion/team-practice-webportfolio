@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Досье Пацана | Так-Сяк</title>
+    <!-- ССЫЛКА НА ШРИФТ -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
+
+        .wrapper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: url('images and icons/folder_p4.jpg') no-repeat center center;
+            background-size: 100% 100%;
+        }
+
+        .content-area {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+        }
+
+        .soc-icon {
+            position: absolute;
+            width: 5%; 
+            height: auto;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: transform 0.2s ease-in-out;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.6));
+            z-index: 999;
+        }
+        .soc-icon:hover { transform: scale(1.3); }
+
+        /* КООРДИНАТЫ */
+        #tg_btn   { top: 78%; left: 86%; }
+        #ds_btn   { top: 76.5%; left: 92.5%; }
+        #git_btn  { top: 75%; left: 65.5%; }
+        #mail_btn { top: 89%; left: 87.5%; }
+
+        .back-home {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: inline-block;
+            width: auto;
+            padding: 8px 15px;
+            font-family: 'Ruslan Display', cursive;
+            font-size: 12px;
+            color: #fff;
+            background: rgba(0,0,0,0.85);
+            border: 1px solid #d35400;
+            text-decoration: none;
+            text-transform: uppercase;
+            z-index: 9999;
+            pointer-events: auto;
+            transition: 0.3s;
+        }
+        .back-home:hover { background: #d35400; color: #000; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content-area">
+            <a href="https://t.me//yarik028" target="_blank"><img src="images and icons/tg.png" class="soc-icon" id="tg_btn"></a>
+            <a href="https://discordapp.com/users/60662" target="_blank"><img src="images and icons/ds.png" class="soc-icon" id="ds_btn"></a>
+            <a href="https://github.com/yarik280" target="_blank"><img src="images and icons/git.png" class="soc-icon" id="git_btn"></a>
+            <a href="mailto:ab5084705@gmail.com"><img src="images and icons/mail.png" class="soc-icon" id="mail_btn"></a>
+            <a href="index.html" class="back-home">← НАЗАД В ПОДЪЕЗД</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('wheel', e => { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
+        document.addEventListener('keydown', e => { if (e.ctrlKey && ['+','-','=','0'].includes(e.key)) e.preventDefault(); });
+    </script>
+</body>
+</html>
