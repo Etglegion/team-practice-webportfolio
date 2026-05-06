@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Молоко на асфальте | Так-Сяк</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- ССЫЛКА НА ШРИФТ -->
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- БОКОВОЕ МЕНЮ -->
+    <div id="mySidebar" class="sidebar">
+        <div class="close-sidebar" onclick="toggleMenu()">×</div>
+        <h2>НАВИГАЦИЯ</h2>
+        <a href="#" onclick="openAbout(); toggleMenu(); return false;">О команде</a>
+        <a href="p1.html">Тим-лид</a>
+        <a href="p2.html">Фронтенд</a>
+        <a href="p3.html">Бэкенд</a>
+        <a href="p4.html">Тестер (ERROR)</a>
+        <a href="p5.html">Документатор</a>
+    </div>
+
+    <!-- КНОПКИ -->
+    <div class="wrapper">
+        <div class="top-nav">
+            <img src="images and icons\note_btn.png" class="nav-png" onclick="playNextTrack()">
+            <img src="images and icons\menu_btn.png" class="nav-png" onclick="toggleMenu()">
+        </div>
+
+        <div class="content-area">
+            <a href="#" onclick="openAbout(); return false;">
+                <img src="images and icons\logo.png" class="main-logo" title="Узнать об ОПГ Так-Сяк">
+            </a>
+            
+            <a href="p1.html"><img src="images and icons\p1.png" class="pacan" id="p1"></a>
+            <a href="p2.html"><img src="images and icons\p2.png" class="pacan" id="p2"></a>
+            <a href="p3.html"><img src="images and icons\p3.png" class="pacan" id="p3"></a>
+            <a href="p4.html"><img src="images and icons\p4.png" class="pacan" id="p4"></a>
+            <a href="p5.html"><img src="images and icons\p5.png" class="pacan" id="p5"></a>
+        </div>
+    </div>
+
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО С КНОПКОЙ -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeAbout()">&times;</span>
+            <h2 style="font-family: 'Ruslan Display', cursive; color: #d35400; margin-top: 0; font-size: 30px;">ОПГ ТАК-СЯК</h2>
+            
+            <p>Мы — команда разработчиков из Норильска. Наш проект «Молоко на асфальте» — это манифест аутентичности и цифрового панка.</p>
+            <p><b>Стек:</b> HTML5, CSS3, Git, Python (ТГ-бот).</p>
+            
+            <!-- БОТ ПО НАЖАТИЮ НА КНОПКУ -->
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="https://t.me//TakSyakProject_bot" target="_blank" class="modal-tg-btn">СВЯЗАТЬСЯ С НАМИ</a>
+            </div>
+            
+            <p style="color: #d35400; font-weight: bold; text-align: right; margin-top: 20px; font-size: 12px;">Работает — не трогай!</p>
+        </div>
+    </div>
+
+    <audio id="player"></audio>
+
+    <script>
+        function toggleMenu() { document.getElementById("mySidebar").classList.toggle("active"); }
+
+        const tracks = ['music/track1.mp3', 'music/track2.mp3', 'music/track3.mp3'];
+        let currentTrack = 0;
+        const player = document.getElementById('player');
+        function playNextTrack() {
+            player.src = tracks[currentTrack];
+            player.play();
+            currentTrack = (currentTrack + 1) % tracks.length;
+        }
+
+        // Функции окна
+        function openAbout() { document.getElementById("aboutModal").style.display = "block"; }
+        function closeAbout() { document.getElementById("aboutModal").style.display = "none"; }
+        
+        // Закрытие по клику вне окна
+        window.onclick = function(event) {
+            let modal = document.getElementById("aboutModal");
+            if (event.target == modal) { modal.style.display = "none"; }
+        }
+
+        // Блокировка зума
+        document.addEventListener('wheel', e => { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
+        document.addEventListener('keydown', e => {
+            if (e.ctrlKey && ['+','-','=','0'].includes(e.key)) e.preventDefault();
+        });
+    </script>
+</body>
+</html>

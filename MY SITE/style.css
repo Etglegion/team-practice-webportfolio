@@ -1,0 +1,155 @@
+/* ПОДКЛЮЧАЕМ ШРИФТ ПРАВИЛЬНО */
+@import url('https://googleapis.com');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+/* ФОН - ПАНЕЛЬКА НА ВЕСЬ ЭКРАН */
+.wrapper {
+    position: relative;
+    width: 100vw;
+    height: 3500px; 
+    background-image: url('images and icons/render.jpg');
+    background-size: 100% 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* КОНТЕЙНЕР ДЛЯ ПАЦАНОВ */
+.content-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* КОНТЕЙНЕР ЛОГОТИПА (Клик по лого теперь вызывает модалку) */
+.main-logo {
+    position: absolute;
+    top: 14%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.main-logo:hover { transform: translateX(-50%) scale(1.1); }
+
+/* ПАЦАНЫ-КНОПКИ */
+.pacan {
+    position: absolute;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.2s ease;
+}
+.pacan:hover { transform: scale(1.1); }
+.pacan:active { transform: scale(0.9); }
+
+/* КООРДИНАТЫ */
+#p1 { top: 34.5%; left: 38%; width: 116px; }
+#p2 { top: 50%; left: 43%; width: 143px; }
+#p3 { top: 59%; left: 52%; width: 129px; }
+#p4 { top: 69.5%; left: 42.5%; width: 379px; }
+#p5 { top: 84.5%; left: 72%; width: 266px; }
+
+/* МЕНЮ */
+.top-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+}
+.nav-png { width: 60px; cursor: pointer; transition: 0.1s; }
+.nav-png:active { transform: scale(0.8); }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 300px;
+    height: 100%;
+    /* Исправленный градиент и текстура бетона */
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                url('https://freepik.com');
+    background-size: cover;
+    border-left: 5px solid #d35400;
+    color: white;
+    transition: 0.4s ease;
+    z-index: 2000;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    font-family: 'Ruslan Display', cursive;
+}
+.sidebar.active { right: 0; }
+.sidebar a { display: block; color: #fff; text-decoration: none; font-size: 22px; margin: 20px 0; transition: 0.3s; cursor: pointer; }
+.sidebar a:hover { color: #d35400; padding-left: 10px; }
+
+.close-sidebar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: #d35400;
+    cursor: pointer;
+}
+
+/* --- СТИЛЬ МОДАЛЬНОГО ОКНА --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 5000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.85);
+}
+
+.modal-content {
+    background: #dcd0b9;
+    margin: 10% auto;
+    padding: 30px;
+    border: 3px solid #d35400;
+    width: 80%;
+    max-width: 500px;
+    color: #1a1a1a;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    position: relative;
+    text-align: left;
+}
+
+.close-modal {
+    position: absolute;
+    top: 5px; right: 15px;
+    font-size: 35px;
+    cursor: pointer;
+    color: #d35400;
+}
+
+.modal-tg-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 10px;
+    background-color: #d35400;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Ruslan Display', cursive;
+    font-size: 18px;
+    border: 2px solid #000;
+    transition: 0.3s;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.modal-tg-btn:hover {
+    background-color: #e67e22;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #000;
+}
